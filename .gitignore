@@ -56,6 +56,9 @@ project.lock.json
 project.fragment.lock.json
 artifacts/
 
+# VSCcode
+.vscode
+
 # StyleCop
 StyleCopReport.xml
 
@@ -338,3 +341,7 @@ ASALocalRun/
 
 # BeatPulse healthcheck temp database
 healthchecksdb
+
+#native library
+*.so
+*.dylib

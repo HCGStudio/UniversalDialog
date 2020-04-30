@@ -4,5 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>HCGStudio.UniversalDialog</RootNamespace>
   </PropertyGroup>
-
+  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('Linux'))">
+    <None Update="libUniversalDialogQtBinding.so" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
 </Project>
