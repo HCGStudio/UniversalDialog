@@ -126,7 +126,10 @@ namespace HCGStudio.UniversalDialog
         None = 0
     }
 
-    public class Dialog
+    /// <summary>
+    /// 
+    /// </summary>
+    public class MessageDialog
     {
         /// <summary>
         ///     Text shown inside the dialog.
@@ -148,27 +151,25 @@ namespace HCGStudio.UniversalDialog
         /// </summary>
         public DialogIcon Icon { get; set; }
 
-        [DllImport("user32.dll")]
-        internal static extern DialogResult MessageBox(IntPtr hWnd, string text, string caption, ulong type);
 
-        [DllImport("libUniversalDialogQtBinding")]
-        internal static extern DialogResult ShowDialog(string caption, string text, DialogButton button,
-            DialogIcon icon);
 
         /// <summary>
-        ///     Show the dialog.
+        /// Show the dialog.
         /// </summary>
+        /// <param name="preferQtOnMac">True to use qt based dialog on macOS.</param>
         /// <returns>User input of the dialog.</returns>
-        public DialogResult Show()
+        public DialogResult Show(bool preferQtOnMac = false)
         {
             //Direct call Windows API in Windows
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                return MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
-            //
+                return Bindings.WindowsBinding.MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
+            //Use Qt on Linux
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                return ShowDialog(Caption, Text, Button, Icon);
-            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                return ShowDialog(Caption, Text, Button, Icon);
+                return Bindings.QtBinding.ShowDialog(Caption, Text, Button, Icon);
+            //Use Qt on macOS if prefer to use Qt on macOS.
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && preferQtOnMac)
+                return Bindings.QtBinding.ShowDialog(Caption, Text, Button, Icon);
+            //TODO: Cocoa dialog on macOS.
             throw new PlatformNotSupportedException();
         }
     }
