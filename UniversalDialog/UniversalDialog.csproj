@@ -7,7 +7,9 @@
   <ItemGroup Condition="$([MSBuild]::IsOsPlatform('Linux'))">
     <None Update="libUniversalDialogQtBinding.so" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
-
+  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('OSX'))">
+    <None Update="libUniversalDialogQtBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
   <PropertyGroup>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>

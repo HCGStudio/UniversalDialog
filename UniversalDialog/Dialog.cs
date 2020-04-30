@@ -151,7 +151,7 @@ namespace HCGStudio.UniversalDialog
         [DllImport("user32.dll")]
         internal static extern DialogResult MessageBox(IntPtr hWnd, string text, string caption, ulong type);
 
-        [DllImport("libUniversalDialogQtBinding.so")]
+        [DllImport("libUniversalDialogQtBinding")]
         internal static extern DialogResult ShowDialog(string caption, string text, DialogButton button,
             DialogIcon icon);
 
@@ -166,6 +166,8 @@ namespace HCGStudio.UniversalDialog
                 return MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
             //
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                return ShowDialog(Caption, Text, Button, Icon);
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 return ShowDialog(Caption, Text, Button, Icon);
             throw new PlatformNotSupportedException();
         }
