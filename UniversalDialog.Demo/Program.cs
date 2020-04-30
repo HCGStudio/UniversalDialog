@@ -7,17 +7,30 @@ namespace UniversalDialog.Demo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Console.WriteLine(new Dialog
-                    {
-                        Button = DialogButton.YesNo, 
-                        Caption = "杀🐎提示",
-                        Icon = DialogIcon.Exclamation,
-                        Text = "是否杀了ywz的🐎"
+            var result = new Dialog
+            {
+                Button = DialogButton.Ok,
+                Caption = "Sample dialog",
+                Text = "This is a dialog with OK button only."
+            }.Show();
+            Console.WriteLine($"You chose {result}.");
+            result = new Dialog
+            {
+                Button = DialogButton.YesNoCancel,
+                Caption = "Sample dialog",
+                Icon = DialogIcon.Error,
+                Text = "This is a dialog with three buttons and an error icon."
+            }.Show();
+            Console.WriteLine($"You chose {result}.");
+            result = new Dialog
+            {
+                Button = DialogButton.CancelTryContinue,
+                Caption = "Sample dialog",
+                Icon = DialogIcon.Error,
+                Text = "This is a dialog with three buttons and an information icon."
+            }.Show();
+            Console.WriteLine($"You chose {result}.");
 
-                    }
-                .Show());
-            Console.ReadLine();
         }
     }
 }
