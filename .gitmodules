@@ -1,0 +1,3 @@
+[submodule "UniversalDialogQtBinding"]
+	path = UniversalDialogQtBinding
+	url = git@github.com:HCGStudio/UniversalDialogQtBinding.git
