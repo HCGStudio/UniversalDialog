@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using System.Text;
+﻿using System.Runtime.InteropServices;
 
 namespace HCGStudio.UniversalDialog.Bindings
 {
-    class QtBinding
+    internal static class QtBinding
     {
         [DllImport("libUniversalDialogQtBinding")]
         internal static extern DialogResult ShowMessageDialog(string caption,
             string text, DialogButton button, DialogIcon icon);
-
     }
 }

@@ -118,30 +118,30 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Abort" xml:space="preserve">
-    <value>Abort</value>
+    <value>中止</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>Cancel</value>
+    <value>取消</value>
   </data>
   <data name="Continue" xml:space="preserve">
-    <value>Continue</value>
+    <value>继续</value>
   </data>
   <data name="Ignore" xml:space="preserve">
-    <value>Ignore</value>
+    <value>忽略</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>No</value>
+    <value>否</value>
   </data>
   <data name="OK" xml:space="preserve">
-    <value>OK</value>
+    <value>好</value>
   </data>
   <data name="Retry" xml:space="preserve">
-    <value>Retry</value>
+    <value>重试</value>
   </data>
   <data name="Try" xml:space="preserve">
-    <value>Try Again</value>
+    <value>重试</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Yes</value>
+    <value>是</value>
   </data>
 </root>

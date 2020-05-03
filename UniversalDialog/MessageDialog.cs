@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
+using HCGStudio.UniversalDialog.Bindings;
 
 namespace HCGStudio.UniversalDialog
 {
@@ -127,7 +128,6 @@ namespace HCGStudio.UniversalDialog
     }
 
     /// <summary>
-    /// 
     /// </summary>
     public class MessageDialog
     {
@@ -152,9 +152,8 @@ namespace HCGStudio.UniversalDialog
         public DialogIcon Icon { get; set; }
 
 
-
         /// <summary>
-        /// Show the dialog.
+        ///     Show the dialog.
         /// </summary>
         /// <param name="preferQtOnMac">True to use qt based dialog on macOS.</param>
         /// <returns>User input of the dialog.</returns>
@@ -162,16 +161,16 @@ namespace HCGStudio.UniversalDialog
         {
             //Direct call Windows API in Windows
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
-                return Bindings.WindowsBinding.MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
+                return WindowsBinding.MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
             //Use Qt on Linux
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                return Bindings.QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
+                return QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             //Use Qt on macOS if prefer to use Qt on macOS.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && preferQtOnMac)
-                return Bindings.QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
+                return QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             //Use Cocoa dialog on macOS.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
-                return Bindings.CocoaBinding.ShowMessageDialog(Caption, Text, Button, Icon);
+                return CocoaBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             throw new PlatformNotSupportedException();
         }
     }
