@@ -10,6 +10,22 @@
   </ItemGroup>
   <ItemGroup Condition="$([MSBuild]::IsOsPlatform('OSX'))">
     <None Update="libUniversalDialogQtBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="libUniversalDialogCocoaBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
+
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Resources\MessageDialog.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MessageDialog.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Resources\MessageDialog.Designer.cs">
+      <DependentUpon>MessageDialog.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <PropertyGroup>
 

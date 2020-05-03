@@ -7,6 +7,7 @@ namespace UniversalDialog.Demo
     {
         static void Main(string[] args)
         {
+
             var result = new MessageDialog
             {
                 Button = DialogButton.Ok,
@@ -26,7 +27,7 @@ namespace UniversalDialog.Demo
             {
                 Button = DialogButton.CancelTryContinue,
                 Caption = "Sample dialog",
-                Icon = DialogIcon.Error,
+                Icon = DialogIcon.Information,
                 Text = "This is a dialog with three buttons and an information icon."
             }.Show();
             Console.WriteLine($"You chose {result}.");

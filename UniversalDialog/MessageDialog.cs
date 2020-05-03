@@ -169,7 +169,9 @@ namespace HCGStudio.UniversalDialog
             //Use Qt on macOS if prefer to use Qt on macOS.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && preferQtOnMac)
                 return Bindings.QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
-            //TODO: Cocoa dialog on macOS.
+            //Use Cocoa dialog on macOS.
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                return Bindings.CocoaBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             throw new PlatformNotSupportedException();
         }
     }
