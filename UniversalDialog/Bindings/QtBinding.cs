@@ -8,7 +8,7 @@ namespace HCGStudio.UniversalDialog.Bindings
     class QtBinding
     {
         [DllImport("libUniversalDialogQtBinding")]
-        internal static extern DialogResult ShowDialog(string caption, string text, DialogButton button,
+        internal static extern DialogResult ShowMessageDialog(string caption, string text, DialogButton button,
             DialogIcon icon);
     }
 }

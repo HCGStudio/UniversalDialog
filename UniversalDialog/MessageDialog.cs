@@ -165,10 +165,10 @@ namespace HCGStudio.UniversalDialog
                 return Bindings.WindowsBinding.MessageBox(IntPtr.Zero, Text, Caption, (ulong) Button | (ulong) Icon);
             //Use Qt on Linux
             if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
-                return Bindings.QtBinding.ShowDialog(Caption, Text, Button, Icon);
+                return Bindings.QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             //Use Qt on macOS if prefer to use Qt on macOS.
             if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX) && preferQtOnMac)
-                return Bindings.QtBinding.ShowDialog(Caption, Text, Button, Icon);
+                return Bindings.QtBinding.ShowMessageDialog(Caption, Text, Button, Icon);
             //TODO: Cocoa dialog on macOS.
             throw new PlatformNotSupportedException();
         }
