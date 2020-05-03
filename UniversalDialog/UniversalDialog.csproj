@@ -5,11 +5,8 @@
     <RootNamespace>HCGStudio.UniversalDialog</RootNamespace>
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
-  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('Linux'))">
+  <ItemGroup>
     <None Update="libUniversalDialogQtBinding.so" CopyToOutputDirectory="PreserveNewest" />
-  </ItemGroup>
-  <ItemGroup Condition="$([MSBuild]::IsOsPlatform('OSX'))">
-    <None Update="libUniversalDialogQtBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
     <None Update="libUniversalDialogCocoaBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
@@ -28,5 +25,15 @@
   <PropertyGroup>
     <NeutralLanguage>en-US</NeutralLanguage>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+    <Company>HCGStudio</Company>
+    <Authors>HCGStudio</Authors>
+    <Description>Helps you to create cross platform dialogs. Nuget icon from by srip at https://www.flaticon.com/authors/srip.</Description>
+    <Copyright>HCGStudio (c) 2020</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/HCGStudio/UniversalDialog</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/HCGStudio/UniversalDialog</RepositoryUrl>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageIcon>icon.png</PackageIcon>
   </PropertyGroup>
 </Project>
