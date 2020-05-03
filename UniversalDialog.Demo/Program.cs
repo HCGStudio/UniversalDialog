@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using HCGStudio.UniversalDialog;
 
 namespace UniversalDialog.Demo
@@ -7,7 +8,6 @@ namespace UniversalDialog.Demo
     {
         static void Main(string[] args)
         {
-
             var result = new MessageDialog
             {
                 Button = DialogButton.Ok,
