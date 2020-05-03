@@ -6,8 +6,21 @@
     <Platforms>AnyCPU</Platforms>
   </PropertyGroup>
   <ItemGroup>
-    <None Update="libUniversalDialogQtBinding.so" CopyToOutputDirectory="PreserveNewest" />
-    <None Update="libUniversalDialogCocoaBinding.dylib" CopyToOutputDirectory="PreserveNewest" />
+    <None Update="icon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="libUniversalDialogQtBinding.so" CopyToOutputDirectory="PreserveNewest">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Update="libUniversalDialogCocoaBinding.dylib" CopyToOutputDirectory="PreserveNewest">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+    <None Include="icon.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Resources\MessageDialog.resx">
